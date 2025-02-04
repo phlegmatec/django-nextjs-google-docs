@@ -8,8 +8,8 @@ export default function Home() {
   const { isHealthy, isLoading: isAPIHealthyLoading } = useAPI();
   
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="grid grid-rows-[auto_1fr_auto] items-start justify-items-center min-h-screen p-2 pb-20 gap-8 sm:p-10 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 items-center sm:items-start ">
         <Image
           className="dark:invert"
           src="/django-nextjs-text.svg"
@@ -19,6 +19,32 @@ export default function Home() {
           priority
         />
         <ol className="space-y-2 list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <li>
+            Clone & setup the project:
+            <pre className="mt-2 p-4 bg-black/[.05] dark:bg-white/[.06] rounded-lg overflow-x-auto">
+              <code>{`git clone https://github.com/jmitchel3/django-nextjs 
+cd django-nextjs`}</code>
+            </pre>
+          </li>
+          <li>
+            Setup Python environment:
+            <pre className="mt-2 p-4 bg-black/[.05] dark:bg-white/[.06] rounded-lg overflow-x-auto">
+              <code>{`python3.12 -m venv venv
+source venv/bin/activate
+pip install -r backend/requirements.txt
+pip install rav
+rav run api-install
+`}</code>
+            </pre>
+          </li>
+          <li>
+            Setup Next.js environment:
+            <pre className="mt-2 p-4 bg-black/[.05] dark:bg-white/[.06] rounded-lg overflow-x-auto">
+              <code>{`rav run frontend-install
+rav run ui
+`}</code>
+            </pre>
+          </li>
           <li>
             Get started by editing{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
