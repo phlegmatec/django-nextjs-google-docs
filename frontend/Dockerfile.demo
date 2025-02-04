@@ -13,8 +13,10 @@ RUN apk add --no-cache curl
 # mostly for Railway demo
 COPY . /tmp/source/
 RUN if [ -d "/tmp/source/frontend" ]; then \
+    echo "Using /tmp/source/frontend directory" && \
     cp -r /tmp/source/frontend/* .; \
     else \
+    echo "Using /tmp/source directory" && \
     cp -r /tmp/source/* .; \
     fi && \
     rm -rf /tmp/source
