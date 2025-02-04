@@ -6,7 +6,7 @@ const APIContext = createContext();
 
 export function APIProvider({ children }) {
   const { data, error, isLoading } = useMySWR("/api/backend/healthz");
-  const isHealthy = !error && data?.status === "ok";
+  const isHealthy = !error && data?.status === "healthy";
 
   return (
     <APIContext.Provider value={{ isHealthy, isLoading }}>
