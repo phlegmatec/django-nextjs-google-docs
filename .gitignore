@@ -129,6 +129,8 @@ celerybeat.pid
 
 # Environments
 .env
+.env*
+!.env.sample
 .venv
 env/
 venv/
@@ -208,8 +210,6 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
 
 # vercel
 .vercel

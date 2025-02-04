@@ -131,6 +131,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+!.env.example
 .env
 .venv
 env/
@@ -211,8 +212,6 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
 
 # vercel
 .vercel

@@ -31,8 +31,7 @@ cd django-nextjs`}</code>
             <pre className="mt-2 p-4 bg-black/[.05] dark:bg-white/[.06] rounded-lg overflow-x-auto">
               <code>{`python3.12 -m venv venv
 source venv/bin/activate
-pip install -r backend/requirements.txt
-pip install rav
+pip install rav pip-tools
 rav run api-install
 `}</code>
             </pre>

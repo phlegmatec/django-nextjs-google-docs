@@ -17,7 +17,22 @@ export default function Navbar({className}) {
     <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <BrandLink displayName={true} />
   
-        {NavLinks.map((navLinkItem, idx)=>{
+       
+      
+    </nav>
+    <MobileNavbar />
+    <div className="md:hidden">
+        <BrandLink displayName={true} />
+    </div>
+    <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
+      
+   
+      {auth.isAuthenticated ?
+      <div className="ml-auto">
+        <AccountDropdown />
+        </div>
+    : <div className="ml-auto space-x-2">
+         {NavLinks.map((navLinkItem, idx)=>{
             const shouldHide = !auth.isAuthenticated && navLinkItem.authRequired
             const shouldHideHealthCheck = navLinkItem.apiHealthRequired && !isHealthy
             if (shouldHide) {
@@ -34,20 +49,7 @@ export default function Navbar({className}) {
                 {navLinkItem.label}
             </Link>
         })}
-      
-    </nav>
-    <MobileNavbar />
-    <div className="md:hidden">
-        <BrandLink displayName={true} />
-    </div>
-    <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-      
-   
-      {auth.isAuthenticated ?
-      <div className="ml-auto">
-        <AccountDropdown />
-        </div>
-    : <div className="ml-auto space-x-2">
+        
         {NonUserLinks.map((navLinkItem, idx)=>{
             const shouldHide = !auth.isAuthenticated &&navLinkItem.authRequired
             const shouldHideHealthCheck = navLinkItem.apiHealthRequired && !isHealthy

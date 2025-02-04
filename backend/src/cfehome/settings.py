@@ -4,8 +4,11 @@ Django settings for cfehome project using Django 5.1.5.
 
 from pathlib import Path
 
-from decouple import config
 from django.core.management.utils import get_random_secret_key
+
+# uses python-decouple
+# loads environment variables from .env.local and .env
+from helpers import config
 
 from .installed import INSTALLED_APPS
 
@@ -22,6 +25,7 @@ SECRET_KEY = config("DJANGO_SECRET_KEY", cast=str, default=get_random_secret_key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DJANGO_DEBUG", cast=bool, default=False)
 
+FRONTEND_URL = config("FRONTEND_URL", cast=str, default="https://djangonext.js")
 ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS", cast=list, default=[])
 CSRF_TRUSTED_ORIGINS = config("DJANGO_CSRF_TRUSTED_ORIGINS", cast=list, default=[])
 
