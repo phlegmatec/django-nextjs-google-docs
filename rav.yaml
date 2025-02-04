@@ -1,0 +1,11 @@
+scripts:
+  ui:
+    - cd frontend && npm run dev
+  ui-install:
+    - cd frontend && npm install
+  api:
+    - cd backend/src && ../../venv/bin/python manage.py runserver
+  api-migrate:
+    - cd backend/src && ../../venv/bin/python manage.py migrate
+  api-install:
+    - cd backend && ../venv/bin/pip install -r requirements.txt
