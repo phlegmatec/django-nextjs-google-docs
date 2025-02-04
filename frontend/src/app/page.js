@@ -1,11 +1,12 @@
 "use client"
-import useMySWR from "@/components/useMySWR";
 
+import { useAPI } from "@/components/apiProvider";
 
 import Image from "next/image";
 
 export default function Home() {
-  const { data, error, isLoading } = useMySWR("/api/healthz?status=ok");
+  const { isHealthy, isLoading: isAPIHealthyLoading } = useAPI();
+  
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -17,8 +18,8 @@ export default function Home() {
           height={284}
           priority
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
+        <ol className="space-y-2 list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <li>
             Get started by editing{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
               src/app/page.js
@@ -26,6 +27,41 @@ export default function Home() {
             .
           </li>
           <li>Save and see your changes instantly.</li>
+          <li className="flex items-center gap-2">
+            Django API Health:{" "}
+            {isAPIHealthyLoading ? (
+              <span className="flex items-center gap-1 text-gray-500">
+                <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                </svg>
+                Loading...
+              </span>
+            ) : isHealthy ? (
+              <span className="flex items-center gap-1 text-green-600 dark:text-green-400">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                OK
+              </span>
+            ) : (
+              <span className="flex items-center gap-1 text-red-600 dark:text-red-400">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                NOT OK
+              </span>
+            )}
+          </li>
+          <li className="flex items-center gap-2">
+            Next.js Health:{" "}
+            <span className="flex items-center gap-1 text-green-600 dark:text-green-400">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Great (you are looking at it)
+            </span>
+          </li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">

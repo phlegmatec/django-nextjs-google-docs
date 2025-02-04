@@ -7,6 +7,7 @@ const NavLinks = [
     {
         label: "Waitlist",
         authRequired: true,
+        apiHealthRequired: true,
         href: "/waitlists"
     }
 ]
@@ -15,11 +16,13 @@ export const NonUserLinks = [
     {
         label: "Signup",
         authRequired: false,
+        apiHealthRequired: true,
         href: "/signup"
     },
     {
         label: "Login",
         authRequired: false,
+        apiHealthRequired: true,
         href: "/login"
     }
 ]
