@@ -9,8 +9,15 @@ WORKDIR /app
 # Install curl
 RUN apk add --no-cache curl
 
-# Copy frontend to working directory
-COPY /frontend/ .
+# Copy files conditionally based on directory structure
+# mostly for Railway demo
+COPY . /tmp/source/
+RUN if [ -d "/tmp/source/frontend" ]; then \
+    cp -r /tmp/source/frontend/* .; \
+    else \
+    cp -r /tmp/source/* .; \
+    fi && \
+    rm -rf /tmp/source
 
 RUN cat package.json
 

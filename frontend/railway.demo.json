@@ -3,16 +3,16 @@
     "builder": "DOCKERFILE",
     "dockerfilePath": "/frontend/Dockerfile.demo",
     "watchPatterns": [
-      "frontend/public/**",
-      "frontend/src/**",
-      "frontend/Dockerfile",
-      "frontend/jsconfig.json",
-      "frontend/next.config.js",
-      "frontend/package-lock.json",
-      "frontend/package.json",
-      "frontend/postcss.config.js",
-      "frontend/railway.toml",
-      "frontend/tailwind.config.js"
+      "public/**",
+      "src/**",
+      "Dockerfile",
+      "jsconfig.json",
+      "next.config.js",
+      "package-lock.json",
+      "package.json",
+      "postcss.config.js",
+      "railway.toml",
+      "tailwind.config.js"
     ]
   },
   "deploy": {
