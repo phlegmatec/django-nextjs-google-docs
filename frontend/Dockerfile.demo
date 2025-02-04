@@ -12,6 +12,8 @@ RUN apk add --no-cache curl
 # Copy frontend to working directory
 COPY /frontend/ .
 
+RUN cat package.json
+
 # Install dependencies
 RUN npm install
 
