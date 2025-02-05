@@ -87,6 +87,20 @@ DATABASES = {
     }
 }
 
+DATABASE_URL = config("DATABASE_URL", cast=str, default="")
+if DATABASE_URL:
+    if DATABASE_URL.startswith("postgres://"):
+        import dj_database_url
+
+        DATABASES = {
+            "default": dj_database_url.config(
+                default=DATABASE_URL,
+                conn_max_age=60,
+                conn_health_checks=True,
+            )
+        }
+    else:
+        raise Exception("DATABASE_URL only supports PostgreSQL at this time")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

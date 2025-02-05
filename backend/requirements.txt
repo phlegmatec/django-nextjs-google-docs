@@ -19,9 +19,12 @@ cryptography==44.0.0
     # via
     #   django-ninja-jwt
     #   pyjwt
+dj-database-url==2.3.0
+    # via -r src/requirements/prod.in
 django==5.1.5
     # via
     #   -r src/requirements/prod.in
+    #   dj-database-url
     #   django-cors-headers
     #   django-ninja
     #   django-ninja-extra
@@ -44,6 +47,10 @@ idna==3.10
     # via email-validator
 injector==0.22.0
     # via django-ninja-extra
+psycopg[binary]==3.2.4
+    # via -r src/requirements/prod.in
+psycopg-binary==3.2.4
+    # via psycopg
 pycparser==2.22
     # via cffi
 pydantic[email]==2.10.6
@@ -60,5 +67,7 @@ sqlparse==0.5.3
     # via django
 typing-extensions==4.12.2
     # via
+    #   dj-database-url
+    #   psycopg
     #   pydantic
     #   pydantic-core
