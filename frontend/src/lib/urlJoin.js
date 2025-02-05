@@ -12,8 +12,10 @@ export function urlJoin(base, ...parts) {
     // Start with the base URL
     let url = new URL(base);
     
-    // Join all parts, filtering out empty ones and ensuring strings
-    const cleanParts = parts
+    // Flatten arrays and handle nested parts
+    const flatParts = parts.flat();
+    
+    const cleanParts = flatParts
       .filter(Boolean)
       .map(part => String(part).trim())
       .filter(part => part !== '/');  // Filter out standalone slashes
