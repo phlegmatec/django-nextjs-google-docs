@@ -6,29 +6,32 @@ import Image from "next/image";
 
 export default function Home() {
   const { isHealthy, isLoading: isAPIHealthyLoading } = useAPI();
-  
+
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] items-start justify-items-center min-h-screen p-2 pb-20 gap-8 sm:p-10 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 items-center sm:items-start ">
+    <div className="grid grid-rows-[auto_1fr_auto] items-start justify-items-center 
+      min-h-screen p-2 pb-20 gap-8 sm:p-10 
+      font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 items-center sm:items-start">
         <Image
-          className="dark:invert"
+          className="w-[300px] md:w-full dark:invert"
           src="/django-nextjs-text.svg"
           alt="Next.js logo"
           width={500}
           height={284}
           priority
         />
-        <ol className="space-y-2 list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+        <ol className="space-y-2 list-inside list-decimal text-sm text-center 
+          sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li>
             Clone & setup the project:
-            <pre className="mt-2 p-4 bg-black/[.05] dark:bg-white/[.06] rounded-lg overflow-x-auto">
+            <pre className="mt-2 p-4 bg-black/[.05] dark:bg-white/[.06] rounded-lg overflow-x-auto whitespace-pre-wrap break-words">
               <code>{`git clone https://github.com/jmitchel3/django-nextjs 
 cd django-nextjs`}</code>
             </pre>
           </li>
           <li>
             Setup Python environment:
-            <pre className="mt-2 p-4 bg-black/[.05] dark:bg-white/[.06] rounded-lg overflow-x-auto">
+            <pre className="mt-2 p-4 bg-black/[.05] dark:bg-white/[.06] rounded-lg overflow-x-auto whitespace-pre-wrap break-words">
               <code>{`python3.12 -m venv venv
 source venv/bin/activate
 pip install rav pip-tools
@@ -38,7 +41,7 @@ rav run api-install
           </li>
           <li>
             Setup Next.js environment:
-            <pre className="mt-2 p-4 bg-black/[.05] dark:bg-white/[.06] rounded-lg overflow-x-auto">
+            <pre className="mt-2 p-4 bg-black/[.05] dark:bg-white/[.06] rounded-lg overflow-x-auto whitespace-pre-wrap break-words">
               <code>{`rav run frontend-install
 rav run ui
 `}</code>
@@ -91,7 +94,10 @@ rav run ui
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            className="rounded-full border border-solid border-transparent 
+              transition-colors flex items-center justify-center bg-foreground 
+              text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] 
+              text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
             href="https://github.com/jmitchel3/django-nextjs"
             target="_blank"
             rel="noopener noreferrer"
@@ -106,7 +112,11 @@ rav run ui
             Download
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44 cursor-not-allowed opacity-50"
+            className="rounded-full border border-solid border-black/[.08] 
+              dark:border-white/[.145] transition-colors flex items-center 
+              justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
+              hover:border-transparent text-sm sm:text-base h-10 sm:h-12 
+              px-4 sm:px-5 sm:min-w-44 cursor-not-allowed opacity-50"
             href="#"
             onClick={(e) => e.preventDefault()}
             aria-disabled="true"
